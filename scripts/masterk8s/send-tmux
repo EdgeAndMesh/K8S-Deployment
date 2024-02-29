@@ -1,0 +1,25 @@
+#!/bin/sh
+set -e
+
+usage() {
+	exit 1
+}
+
+SESSION_NAME=AIDA
+case "$1" in
+	cloud)
+		WINDOW_NUMBER=1
+		PANES="$(seq 1 4)"
+		;;
+	edge)
+		WINDOW_NUMBER=2
+		PANES="$(seq 1 3)"
+		;;
+	*) usage ;;
+esac
+shift
+
+for pane in $PANES
+do
+	tmux send-keys -t "$SESSION_NAME:$WINDOW_NUMBER.$pane" "$@" Enter
+done

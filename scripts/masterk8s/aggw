@@ -1,0 +1,28 @@
+#!/bin/sh
+set -e
+
+usage() {
+	echo "Usage: $(basename "$0") <input file> <output file>"
+	exit 1
+}
+
+[ "$#" -ne 2 ] && usage
+
+input_file="$1"
+output_file="$2"
+
+default_font_family='JetBrains Mono,Fira Code,SF Mono,Menlo,Consolas,DejaVu Sans Mono,Liberation Mono'
+font_family="$default_font_family,FiraCode Nerd Font"
+font_size=20
+idle_time_limit=2
+speed=1.5
+
+set -x
+
+agg \
+	--font-size "$font_size" \
+	--font-family "$font_family" \
+	--idle-time-limit "$idle_time_limit" \
+	--speed "$speed" \
+	"$input_file" \
+	"$output_file"
