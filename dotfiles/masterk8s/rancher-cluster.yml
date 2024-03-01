@@ -1,0 +1,28 @@
+nodes:
+  - address: 10.3.3.151
+    user: aida
+    role: [controlplane, etcd]
+  - address: 10.3.1.91
+    user: aida
+    role: [worker]
+  - address: 10.3.1.253
+    user: aida
+    role: [worker]
+  - address: 10.3.3.13
+    user: aida
+    role: [worker]
+
+services:
+  etcd:
+    snapshot: true
+    creation: 6h
+    retention: 24h
+
+# Required for external TLS termination with
+# ingress-nginx v0.22+
+ingress:
+  provider: nginx
+  options:
+    use-forwarded-headers: "true"
+
+kubernetes_version: v1.26.11-rancher2-2
