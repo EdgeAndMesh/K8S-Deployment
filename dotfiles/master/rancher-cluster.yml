@@ -1,14 +1,14 @@
 nodes:
-  - address: 10.3.3.151
+  - address: 10.3.1.150
     user: aida
     role: [controlplane, etcd]
-  - address: 10.3.1.91
+  - address: 10.3.1.102
     user: aida
     role: [worker]
-  - address: 10.3.1.253
+  - address: 10.3.1.194
     user: aida
     role: [worker]
-  - address: 10.3.3.13
+  - address: 10.3.3.137
     user: aida
     role: [worker]
 
