@@ -25,4 +25,4 @@ ingress:
   options:
     use-forwarded-headers: "true"
 
-kubernetes_version: v1.26.11-rancher2-2
+kubernetes_version: v1.26.13-rancher1-1
