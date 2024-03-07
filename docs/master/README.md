@@ -87,3 +87,10 @@ installing the scripts, you can run `aggw`
 ```sh
 aggw demo.cast demo.gif
 ```
+
+### Install scripts
+
+```sh
+cd ~/.local/src/K8S-Deployment
+scripts/install.sh master
+```
