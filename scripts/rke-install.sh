@@ -8,7 +8,8 @@ url_sha256="https://github.com/rancher/rke/releases/download/v$version/sha256sum
 file=/usr/local/bin/rke
 
 set -xe
-curl --location --silent --output "$file" "$url_binary"
+sudo curl --location --silent --output "$file" "$url_binary"
 curl --location --silent "$url_sha256" \
 	| awk '/'"$arch"'/ { print $1 "  '"$file"'" }' \
-	| sha256sum --check
+	| sha256sum --check \
+	|| sudo rm "$file"
