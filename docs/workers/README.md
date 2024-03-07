@@ -28,6 +28,12 @@ cd ~/.local/src/K8S-Deployment/
 dotfiles/install.sh worker
 ```
 
+After sucessful installation of dotfiles, recommended to source `~/.profile`
+
+```sh
+source ~/.profile
+```
+
 ### Install scripts
 
 ```sh
