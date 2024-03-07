@@ -9,6 +9,7 @@ file=/usr/local/bin/rke
 
 set -xe
 sudo curl --location --silent --output "$file" "$url_binary"
+sudo chmod +x "$file"
 curl --location --silent "$url_sha256" \
 	| awk '/'"$arch"'/ { print $1 "  '"$file"'" }' \
 	| sha256sum --check \
