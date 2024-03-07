@@ -22,5 +22,7 @@ machines:
   - OS: Ubuntu 20.04.6 LTS
 
 Kubernetes Version: `v1.26`
+
 KubeEdge: `1.15`
+
 RKE Version: `v.1.4.15`
