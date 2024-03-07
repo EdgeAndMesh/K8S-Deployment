@@ -143,7 +143,75 @@ command
 sudo docker run hello-world
 ```
 
-### [Install kubectl requirements](https://v1-26.docs.kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
+#### [Forwarding IPv4 and letting iptables see bridged traffic](https://v1-26.docs.kubernetes.io/docs/setup/production-environment/container-runtimes/#forwarding-ipv4-and-letting-iptables-see-bridged-traffic)
+
+Better to copy command by command
+
+```sh
+cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
+overlay
+br_netfilter
+EOF
+
+sudo modprobe overlay
+sudo modprobe br_netfilter
+
+# sysctl params required by setup, params persist across reboots
+cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+net.bridge.bridge-nf-call-iptables  = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+net.ipv4.ip_forward                 = 1
+EOF
+
+# Apply sysctl params without reboot
+sudo sysctl --system
+```
+
+You can verify by:
+
+```sh
+lsmod | grep br_netfilter
+lsmod | grep overlay
+sysctl net.bridge.bridge-nf-call-iptables net.bridge.bridge-nf-call-ip6tables net.ipv4.ip_forward
+```
+
+#### Installing [Container Runtime Interface (cri-dockerd)](https://github.com/Mirantis/cri-dockerd)
+
+Install by downloading the pre-built binaries from the [release page](https://github.com/Mirantis/cri-dockerd/releases)
+
+You can run the script found in `scripts/cri-dockerd-install.sh`
+
+```sh
+#!/bin/sh
+set -xe
+
+version=0.3.10
+temp_dir="$(mktemp --directory)"
+cd "$temp_dir"
+
+set -x
+
+curl --silent --location --remote-name "https://github.com/Mirantis/cri-dockerd/releases/download/v$version/cri-dockerd-$version.amd64.tgz"
+tar -xvzf "cri-dockerd-$version.amd64.tgz"
+
+cd cri-dockerd
+sudo mkdir --parents /usr/local/bin
+sudo install \
+	--owner=root \
+	--group=root \
+	--mode=0755 \
+	cri-dockerd /usr/local/bin/cri-dockerd
+cd ..
+rm -r cri-dockerd
+
+git clone https://github.com/Mirantis/cri-dockerd.git
+cd cri-dockerd
+sudo install packaging/systemd/* /etc/systemd/system
+sudo sed -i -e 's,/usr/bin/cri-dockerd,/usr/local/bin/cri-dockerd,' /etc/systemd/system/cri-docker.service
+sudo systemctl daemon-reload
+sudo systemctl enable --now cri-docker.socket
+```
+
 
 I will proceed to Install kubectl via the [package manager way](https://v1-26.docs.kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
 
