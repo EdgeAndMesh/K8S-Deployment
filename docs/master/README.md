@@ -15,7 +15,7 @@ sudo apt install -y htop vim bash tmux git gcc
 #### Optional
 
 ```sh
-sudo apt install bat tree
+sudo apt install bat tree ncdu
 ```
 
 ### Install dotfiles
