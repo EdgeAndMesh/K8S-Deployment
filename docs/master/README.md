@@ -133,6 +133,13 @@ docker.
 sudo usermod --append --groups docker aida
 ```
 
+You can check if your user was added to the docker group by running the command:
+
+```sh
+aida@master:~$ grep docker /etc/group
+docker:x:998:aida
+```
+
 Then after rebooting, your user will have permissions to perform docker commands
 
 
