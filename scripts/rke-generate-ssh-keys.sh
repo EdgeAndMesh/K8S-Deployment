@@ -2,14 +2,26 @@
 set -e
 
 usage() {
-	echo "Usage: $(basename "$0") <user> <hostname>"
+	echo "Usage: $(basename "$0")"
 	exit 1
 }
 
-[ "$#" -lt 2 ] && usage
+[ "$#" -ne 0 ] && usage
 
-user="$1"
-hostname="$2"
+user="$(whoami)"
+if [ -z "$user" ]
+then
+	echo "user is empty: $user" >&2
+	exit 1
+fi
+
+hostname="$(hostname)"
+if [ -z "$hostname" ]
+then
+	echo "hostname is empty: $hostname" >&2
+	exit 1
+fi
+
 type=ed25519
 file=~/.ssh/id_rsa
 password=
