@@ -16,3 +16,6 @@ machines:
 4. worker 3
   - 3 CPU cores, 8GiB RAM, 80GB
   - ip: `10.3.3.137`
+
+Kubernetes Version: `v1.26`
+KubeEdge: `1.15`
