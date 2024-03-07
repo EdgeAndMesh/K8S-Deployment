@@ -39,4 +39,4 @@ set -xe
 ssh-keygen -t "$type" -C "$user@$hostname" -f "$ssh_file" -N "$password"
 sed -i '/'"$user"'@'"$hostname"'/d' ~/.ssh/authorized_keys
 ssh-keygen -y -f "$ssh_file" | tee --append ~/.ssh/authorized_keys
-scp "$ssh_file" "$user@$hostname:~/.ssh/$hostname"
+scp "$ssh_file" "$master_machine:~/.ssh/$hostname"
