@@ -252,3 +252,28 @@ Or single command
 sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl && curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.26/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg && sudo mkdir --parents /etc/apt/keyrings && echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.26/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list && sudo apt-get update && sudo apt-get install -y kubelet kubeadm kubectl && sudo apt-mark hold kubelet kubeadm kubectl
 ```
 
+### [Install Rancher Tool (RKE)](https://rke.docs.rancher.com/installation)
+
+#### [Requirements](https://rke.docs.rancher.com/os)
+
+1. [Install Docker](#installing-container-runtime-(docker))
+2. [Add user to docker group](#adding-user-to-docker-group)
+3. [Swap should be disabled](#installing-kubeadm-kubelet-and-kubectl)
+4. [Downloading the binary](https://rke.docs.rancher.com/installation#download-the-rke-binary)
+You can simply run the script found at `scripts/rke-install.sh`
+```sh
+rke-install.sh
+```
+5. Following sysctl settings must be applied
+```sh
+grep --quiet 'net.bridge.bridge-nf-call-iptables=1' /etc/sysctl.conf || sudo tee --append 'net.bridge.bridge-nf-call-iptables=1' /etc/sysctl.conf
+sudo sysctl --system
+grep 'net.bridge.bridge-nf-call-iptables=1' /etc/sysctl.conf
+```
+6. [SSH Server Configuration](https://rke.docs.rancher.com/os#ssh-server-configuration)
+```sh
+sudo sed -i '0,/.*AllowTcpForwarding.*/s//AllowTcpForwarding yes/' /etc/ssh/sshd_config
+grep AllowTcpForwarding /etc/ssh/sshd_config
+```
+7. [SSH Connection configuration](#install-dotfiles)
+Make sure to install dotfiles, the important file is `~/.ssh/config`

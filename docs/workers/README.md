@@ -180,3 +180,34 @@ Or single command
 ```sh
 sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl && curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.26/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg && sudo mkdir --parents /etc/apt/keyrings && echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.26/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list && sudo apt-get update && sudo apt-get install -y kubectl
 ```
+
+### Rancher Setup
+
+#### [Requirements](https://rke.docs.rancher.com/os)
+
+1. [Install Docker](#installing-container-runtime-(docker))
+2. [Add user to docker group](#adding-user-to-docker-group)
+3. [Swap should be disabled](#installing-kubeadm-kubelet-and-kubectl)
+4. Following sysctl settings must be applied
+```sh
+grep --quiet 'net.bridge.bridge-nf-call-iptables=1' /etc/sysctl.conf || sudo tee --append 'net.bridge.bridge-nf-call-iptables=1' /etc/sysctl.conf
+sudo sysctl --system
+grep 'net.bridge.bridge-nf-call-iptables=1' /etc/sysctl.conf
+```
+5. [SSH Server Configuration](https://rke.docs.rancher.com/os#ssh-server-configuration)
+```sh
+sudo sed -i '0,/.*AllowTcpForwarding.*/s//AllowTcpForwarding yes/' /etc/ssh/sshd_config
+grep AllowTcpForwarding /etc/ssh/sshd_config
+sudo systemctl restart sshd
+```
+6. [SSH connection configuration](https://rke.docs.rancher.com/config-options/nodes#ssh-key-path)
+Rancher when connecting to a node, it will use ssh the default key filepath is
+`~/.ssh/id_rsa`
+
+To generate a new ssh key run the following script
+`scripts/rke-generate-ssh-keys.sh` (replace `aida` and `worker01` with the correct
+user and hostname respectively):
+
+```sh
+rke-generate-ssh-keys.sh aida@10.3.1.150
+```
