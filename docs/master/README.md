@@ -223,6 +223,31 @@ sudo systemctl enable --now cri-docker.socket
 
 #### Requirements
 
+- A compatible Linux host. The Kubernetes project provides generic instructions
+  for Linux distributions based on Debian and Red Hat, and those distributions
+  without a package manager.
+- 2 GB or more of RAM per machine (any less will leave little room for your
+  apps).
+- 2 CPUs or more.
+- Full network connectivity between all machines in the cluster (public or
+  private network is fine).
+- Unique hostname, MAC address, and product_uuid for every node. See here for
+  more details.
+- Certain ports are open on your machines. See here for more details.
+- Swap configuration. The default behavior of a kubelet was to fail to start if
+  swap memory was detected on a node. Swap has been supported since v1.22. And
+  since v1.28, Swap is supported for cgroup v2 only; the NodeSwap feature gate
+  of the kubelet is beta but disabled by default.
+  - You MUST disable swap if the kubelet is not properly configured to use swap.
+    For example, `sudo swapoff -a` will disable swapping temporarily. To make this
+    change persistent across reboots, make sure swap is disabled in config files
+    like /etc/fstab, systemd.swap, depending how it was configured on your
+    system.
+    ```sh
+    sudo swapoff --all
+    sudo sed -i 's/^[^#].*swap/#&/' /etc/fstab
+    ```
+
 First check [requirements](https://v1-26.docs.kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#before-you-begin)
 
 Requirements:
