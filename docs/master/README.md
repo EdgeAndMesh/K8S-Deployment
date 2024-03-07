@@ -93,6 +93,7 @@ aggw demo.cast demo.gif
 ```sh
 cd ~/.local/src/K8S-Deployment
 scripts/install.sh master
+source ~/.profile
 ```
 
 **Environment Setup Complete...**
