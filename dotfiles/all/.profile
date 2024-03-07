@@ -32,4 +32,4 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export EDITOR=vim
-source "$CARGO_HOME/env"
+[ -f "$CARGO_HOME/env" ] && source "$CARGO_HOME/env"
