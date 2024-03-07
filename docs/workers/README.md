@@ -96,6 +96,44 @@ command
 sudo docker run hello-world
 ```
 
+#### [Forwarding IPv4 and letting iptables see bridged traffic](https://v1-26.docs.kubernetes.io/docs/setup/production-environment/container-runtimes/#forwarding-ipv4-and-letting-iptables-see-bridged-traffic)
+
+Better to copy command by command
+
+```sh
+cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
+overlay
+br_netfilter
+EOF
+
+sudo modprobe overlay
+sudo modprobe br_netfilter
+
+# sysctl params required by setup, params persist across reboots
+cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+net.bridge.bridge-nf-call-iptables  = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+net.ipv4.ip_forward                 = 1
+EOF
+
+# Apply sysctl params without reboot
+sudo sysctl --system
+```
+
+You can verify by:
+
+```sh
+lsmod | grep br_netfilter
+lsmod | grep overlay
+sysctl net.bridge.bridge-nf-call-iptables net.bridge.bridge-nf-call-ip6tables net.ipv4.ip_forward
+```
+
+#### Installing [Container Runtime Interface (cri-dockerd)](https://github.com/Mirantis/cri-dockerd)
+
+Install by downloading the pre-built binaries from the [release page](https://github.com/Mirantis/cri-dockerd/releases)
+
+You can run the script found in `scripts/cri-dockerd-install.sh`
+
 ### [Install kubectl requirements](https://v1-26.docs.kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
 
 - A compatible Linux host. The Kubernetes project provides generic instructions
