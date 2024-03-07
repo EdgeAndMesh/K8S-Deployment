@@ -10,30 +10,28 @@ usage() {
 
 dotfiles_dir="$(dirname "$0")"
 
-all() {
-	find "$dotfiles_dir/all" -type f \
-		| while read -r file
+installation() {
+	directory="$1"
+	find "$directory" -type f \
+		| while read -r filepath
 		do
-			install --mode=644 "$file" "$HOME/$file"
+			file="$(basename "$0")"
+			install --mode=644 --verbose "$filepath" "$HOME/$file"
 		done
+}
+
+all() {
+	installation "$dotfiles_dir/all"
 }
 
 master() {
 	all
-	find "$dotfiles_dir/master" -type f \
-		| while read -r file
-		do
-			install --mode=644 "$file" "$HOME/$file"
-		done
+	installation "$dotfiles_dir/master"
 }
 
 worker() {
 	all
-	find "$dotfiles_dir/worker" -type f \
-		| while read -r file
-		do
-			install --mode=644 "$file" "$HOME/$file"
-		done
+	installation "$dotfiles_dir/worker"
 }
 
 case "$1" in
