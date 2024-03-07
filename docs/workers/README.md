@@ -159,6 +159,7 @@ You can run the script found in `scripts/cri-dockerd-install.sh`
     ```sh
     sudo swapoff --all
     sudo sed -i 's/^[^#].*swap/#&/' /etc/fstab
+    grep swap /etc/fstab
     ```
 
 I will proceed to Install kubectl via the [package manager way](https://v1-26.docs.kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
