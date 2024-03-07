@@ -15,7 +15,7 @@ installation() {
 	find "$directory" -type f \
 		| while read -r filepath
 		do
-			file="$(basename "$0")"
+			file="$(basename "$filepath")"
 			install --mode=644 --verbose "$filepath" "$HOME/$file"
 		done
 }
