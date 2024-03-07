@@ -216,6 +216,7 @@ You can run the script found in `scripts/cri-dockerd-install.sh`
     ```sh
     sudo swapoff --all
     sudo sed -i 's/^[^#].*swap/#&/' /etc/fstab
+    grep swap /etc/fstab
     ```
 
 First check [requirements](https://v1-26.docs.kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#before-you-begin)
