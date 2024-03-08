@@ -210,3 +210,10 @@ user and hostname respectively):
 ```sh
 rke-generate-ssh-keys.sh aida@10.3.1.150
 ```
+
+After finishing all the configuration, you will need to reboot the machine. So
+that the user added to the docker group takes effect.
+
+```sh
+sudo reboot
+```

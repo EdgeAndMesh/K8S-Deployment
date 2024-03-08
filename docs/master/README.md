@@ -275,3 +275,10 @@ grep AllowTcpForwarding /etc/ssh/sshd_config
 ```
 7. [SSH Connection configuration](#install-dotfiles)
 Make sure to install dotfiles, the important file is `~/.ssh/config`
+
+After finishing all the configuration, you will need to reboot the machine. So
+that the user added to the docker group takes effect.
+
+```sh
+sudo reboot
+```
