@@ -32,4 +32,5 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export EDITOR=vim
+export KUBECONFIG="$HOME/kube_config_rancher-cluster.yml"
 [ -f "$CARGO_HOME/env" ] && source "$CARGO_HOME/env"
