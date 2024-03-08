@@ -26,3 +26,13 @@ Kubernetes Version: `v1.26`
 KubeEdge: `1.15`
 
 RKE Version: `v.1.4.15`
+
+## RKE Deployment
+
+By running the following command:
+
+```sh
+rke up --config ~/rancher-cluster.yml --ignore-docker-version
+```
+
+![RKE Deployment](rancher-up-doc.gif)

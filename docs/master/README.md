@@ -303,5 +303,5 @@ Make sure you have [installed dotfiles](#install-dotfiles) before proceeding, be
 provided the `rancher-cluster.yml` yaml config file.
 
 ```sh
-rke up --config ~/rancher-cluster.yml
+rke up --config ~/rancher-cluster.yml --ignore-docker-version
 ```
