@@ -282,6 +282,14 @@ sudo systemctl restart sshd
 7. [SSH Connection configuration](#install-dotfiles)
 Make sure to install dotfiles, the important file is `~/.ssh/config`
 
+Generating ssh key file:
+
+```sh
+ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)" -f ~/.ssh/id_rsa -N ""
+sed -i '/'"$(whoami)"'@'"$(hostname)"'/d' ~/.ssh/authorized_keys
+ssh-keygen -y -f ~/.ssh/id_rsa | tee --append ~/.ssh/authorized_keys
+```
+
 After finishing all the configuration, you will need to reboot the machine. So
 that the user added to the docker group takes effect.
 
