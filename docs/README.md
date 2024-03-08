@@ -29,6 +29,10 @@ RKE Version: `v.1.4.15`
 
 ## RKE Deployment
 
+Make sure you have already followed the tutorials in `master/README.md` for the
+master machine and `workers/README.md` for every worker machine before
+proceeding.
+
 By running the following command:
 
 ```sh
