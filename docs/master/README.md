@@ -185,7 +185,11 @@ sysctl net.bridge.bridge-nf-call-iptables net.bridge.bridge-nf-call-ip6tables ne
 
 Install by downloading the pre-built binaries from the [release page](https://github.com/Mirantis/cri-dockerd/releases)
 
-You can run the script found in `scripts/cri-dockerd-install.sh`
+You can run the script found in `scripts/all/cri-dockerd-install.sh`
+
+```sh
+~/.local/src/K8S-Deployment/scripts/all/cri-dockerd-install.sh
+```
 
 ### [Installing kubeadm, kubelet and kubectl](https://v1-26.docs.kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#installing-kubeadm-kubelet-and-kubectl)
 
