@@ -24,8 +24,7 @@ Clone this repo:
 
 ```sh
 git clone git@github.com:EdgeAndMesh/K8S-Deployment.git ~/.local/src/K8S-Deployment
-cd ~/.local/src/K8S-Deployment/
-dotfiles/install.sh worker
+~/.local/src/K8S-Deployment/dotfiles/install.sh worker
 ```
 
 After sucessful installation of dotfiles, recommended to source `~/.profile`
@@ -37,8 +36,8 @@ source ~/.profile
 ### Install scripts
 
 ```sh
-cd ~/.local/src/K8S-Deployment
-scripts/install.sh worker
+~/.local/src/K8S-Deployment/scripts/install.sh worker
+source ~/.profile
 ```
 
 **Environment Setup Complete...**

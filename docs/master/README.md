@@ -24,8 +24,7 @@ Clone this repo:
 
 ```sh
 git clone git@github.com:EdgeAndMesh/K8S-Deployment.git ~/.local/src/K8S-Deployment
-cd ~/.local/src/K8S-Deployment/
-dotfiles/install.sh master
+~/.local/src/K8S-Deployment/dotfiles/install.sh master
 ```
 
 After sucessful installation of dotfiles, recommended to source `~/.profile`
@@ -91,8 +90,7 @@ aggw demo.cast demo.gif
 ### Install scripts
 
 ```sh
-cd ~/.local/src/K8S-Deployment
-scripts/install.sh master
+~/.local/src/K8S-Deployment/scripts/install.sh master
 source ~/.profile
 ```
 
