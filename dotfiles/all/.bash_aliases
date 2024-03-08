@@ -25,7 +25,6 @@ alias rmdir='rmdir --verbose'
 alias rm='rm --verbose'
 alias ssh-agentd='eval $(ssh-agent -s)'
 alias terminal="\$TERMINAL"
-alias tmux='tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
 alias upper='tr [:lower:] [:upper:]'
 alias youtube-dl='yt-dlp'
 alias ytdownload='yt-dlp --embed-subs --all-subs --embed-thumbnail --embed-metadata \
