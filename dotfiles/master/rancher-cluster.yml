@@ -2,15 +2,23 @@ nodes:
   - address: 10.3.1.150
     user: aida
     role: [controlplane, etcd]
+    ignore_docker_version: true
+    enable_cri_dockerd: true
   - address: 10.3.1.102
     user: aida
     role: [worker]
+    ignore_docker_version: true
+    enable_cri_dockerd: true
   - address: 10.3.1.194
     user: aida
     role: [worker]
+    ignore_docker_version: true
+    enable_cri_dockerd: true
   - address: 10.3.3.137
     user: aida
     role: [worker]
+    ignore_docker_version: true
+    enable_cri_dockerd: true
 
 services:
   etcd:
@@ -26,5 +34,3 @@ ingress:
     use-forwarded-headers: "true"
 
 kubernetes_version: v1.26.13-rancher1-1
-ignore_docker_version: true
-enable_cri_dockerd: true
