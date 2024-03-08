@@ -268,7 +268,7 @@ rke-install.sh
 ```
 5. Following sysctl settings must be applied
 ```sh
-grep --quiet 'net.bridge.bridge-nf-call-iptables=1' /etc/sysctl.conf || sudo tee --append 'net.bridge.bridge-nf-call-iptables=1' /etc/sysctl.conf
+grep --quiet 'net.bridge.bridge-nf-call-iptables=1' /etc/sysctl.conf || echo 'net.bridge.bridge-nf-call-iptables=1' | sudo tee --append /etc/sysctl.conf
 sudo sysctl --system
 grep 'net.bridge.bridge-nf-call-iptables=1' /etc/sysctl.conf
 ```
