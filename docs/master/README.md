@@ -288,3 +288,9 @@ that the user added to the docker group takes effect.
 ```sh
 sudo reboot
 ```
+
+#### [Deploying Rancher K8S Cluster](https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/kubernetes-cluster-setup/rke1-for-rancher#2-run-rke)
+
+```sh
+rke up --config ~/rancher-cluster.yml
+```
