@@ -162,7 +162,7 @@ cri-dockerd-install.sh
     ```sh
     sudo swapoff --all
     sudo sed -i 's/^[^#].*swap/#&/' /etc/fstab
-    free -h | grep -i swap
+    free -h | awk 'NR==1 || /Swap/'
     grep swap /etc/fstab
     ```
 
