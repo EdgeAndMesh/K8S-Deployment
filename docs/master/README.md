@@ -277,6 +277,7 @@ grep 'net.bridge.bridge-nf-call-iptables=1' /etc/sysctl.conf
 ```sh
 sudo sed -i '0,/.*AllowTcpForwarding.*/s//AllowTcpForwarding yes/' /etc/ssh/sshd_config
 grep AllowTcpForwarding /etc/ssh/sshd_config
+sudo systemctl restart sshd
 ```
 7. [SSH Connection configuration](#install-dotfiles)
 Make sure to install dotfiles, the important file is `~/.ssh/config`
