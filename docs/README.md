@@ -33,7 +33,7 @@ Make sure you have already followed the tutorials in `master/README.md` for the
 master machine and `workers/README.md` for every worker machine before
 proceeding.
 
-By running the following command:
+Deploy by running the following command:
 
 ```sh
 rke up --config ~/rancher-cluster.yml --ignore-docker-version
