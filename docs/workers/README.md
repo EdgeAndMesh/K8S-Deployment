@@ -137,7 +137,7 @@ You can run the script found in `scripts/all/cri-dockerd-install.sh`
 ~/.local/src/K8S-Deployment/scripts/all/cri-dockerd-install.sh
 ```
 
-### [Install kubectl requirements](https://v1-26.docs.kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
+### [K8S Worker Requirements Setup](https://v1-26.docs.kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
 
 - A compatible Linux host. The Kubernetes project provides generic instructions
   for Linux distributions based on Debian and Red Hat, and those distributions
@@ -164,25 +164,6 @@ You can run the script found in `scripts/all/cri-dockerd-install.sh`
     sudo sed -i 's/^[^#].*swap/#&/' /etc/fstab
     grep swap /etc/fstab
     ```
-
-I will proceed to Install kubectl via the [package manager way](https://v1-26.docs.kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
-
-```sh
-sudo apt-get update
-sudo apt-get install -y apt-transport-https ca-certificates curl
-curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.26/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
-sudo mkdir --parents /etc/apt/keyrings
-echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.26/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
-sudo apt-get update
-sudo apt-get install -y kubectl
-sudo apt-mark hold kubectl
-```
-
-Or single command
-
-```sh
-sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl && curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.26/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg && sudo mkdir --parents /etc/apt/keyrings && echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.26/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list && sudo apt-get update && sudo apt-get install -y kubectl
-```
 
 ### Rancher Setup
 
