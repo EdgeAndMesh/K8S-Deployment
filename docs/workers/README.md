@@ -189,7 +189,7 @@ Rancher when connecting to a node, it will use ssh the default key filepath is
 `~/.ssh/id_rsa`
 
 To generate a new ssh key run the following script
-`scripts/rke-generate-ssh-keys.sh` (replace `aida` and `worker01` with the correct
+`scripts/worker/rke-generate-ssh-keys.sh` (replace `aida` and `worker01` with the correct
 user and hostname respectively):
 
 ```sh
