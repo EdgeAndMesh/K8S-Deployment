@@ -16,6 +16,7 @@ font_family="$default_font_family,FiraCode Nerd Font"
 font_size=20
 idle_time_limit=2
 speed=1.5
+last_frame_duration=5
 
 set -x
 
@@ -24,5 +25,6 @@ agg \
 	--font-family "$font_family" \
 	--idle-time-limit "$idle_time_limit" \
 	--speed "$speed" \
+	--last-frame-duration "$last_frame_duration" \
 	"$input_file" \
 	"$output_file"
