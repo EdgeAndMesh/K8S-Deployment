@@ -291,6 +291,9 @@ sudo reboot
 
 #### [Deploying Rancher K8S Cluster](https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/kubernetes-cluster-setup/rke1-for-rancher#2-run-rke)
 
+Make sure you have [installed dotfiles](#install-dotfiles) before proceeding, because there it's
+provided the `rancher-cluster.yml` yaml config file.
+
 ```sh
 rke up --config ~/rancher-cluster.yml
 ```
