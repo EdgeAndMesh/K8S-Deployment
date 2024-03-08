@@ -188,7 +188,7 @@ Install by downloading the pre-built binaries from the [release page](https://gi
 You can run the script found in `scripts/all/cri-dockerd-install.sh`
 
 ```sh
-~/.local/src/K8S-Deployment/scripts/all/cri-dockerd-install.sh
+cri-dockerd-install.sh
 ```
 
 ### [Installing kubeadm, kubelet and kubectl](https://v1-26.docs.kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#installing-kubeadm-kubelet-and-kubectl)
