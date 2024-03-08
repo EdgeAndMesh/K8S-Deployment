@@ -171,7 +171,7 @@ You can run the script found in `scripts/all/cri-dockerd-install.sh`
 
 1. [Install Docker](#installing-container-runtime-(docker))
 2. [Add user to docker group](#adding-user-to-docker-group)
-3. [Swap should be disabled](#installing-kubeadm-kubelet-and-kubectl)
+3. [Swap should be disabled](#k8s-worker-requirements-setup)
 4. Following sysctl settings must be applied
 ```sh
 grep --quiet 'net.bridge.bridge-nf-call-iptables=1' /etc/sysctl.conf || sudo tee --append 'net.bridge.bridge-nf-call-iptables=1' /etc/sysctl.conf
