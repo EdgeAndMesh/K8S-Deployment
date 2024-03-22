@@ -2,11 +2,11 @@
 set -e
 
 usage() {
-	echo "Usage: $(basename "$0") <master | worker>"
+	echo "Usage: $(basename "$0") <cloud | edge> <master | worker>"
 	exit 1
 }
 
-[ "$#" -lt 1 ] && usage
+[ "$#" -lt 2 ] && usage
 
 scripts_dir="$(dirname "$0")"
 scripts_install_dir="$HOME/.local/bin"
@@ -14,6 +14,9 @@ mkdir --parents "$scripts_install_dir"
 
 installation() {
 	directory="$1"
+
+	[ ! -d "$directory" ] && return
+
 	find "$directory" -type f \
 		| while read -r filepath
 		do
@@ -25,22 +28,15 @@ installation() {
 		done
 }
 
-all() {
+install() {
 	installation "$scripts_dir/all"
+	installation "$scripts_dir/$1/all"
+	installation "$scripts_dir/$1/$2"
 }
 
-master() {
-	all
-	installation "$scripts_dir/master"
-}
-
-worker() {
-	all
-	installation "$scripts_dir/worker"
-}
-
-case "$1" in
-	master) master ;;
-	worker) worker ;;
-	*)      usage  ;;
+case "$1 $2" in
+	"cloud master" | "cloud worker" | "edge master" | "edge worker")
+		install "$1" "$2"
+		;;
+	*) usage ;;
 esac
