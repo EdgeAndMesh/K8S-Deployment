@@ -23,11 +23,9 @@ machines:
 
 Kubernetes Version: `v1.26`
 
-KubeEdge: `1.15`
-
 RKE Version: `v.1.4.15`
 
-## RKE Deployment
+### RKE Deployment
 
 Make sure you have already followed the tutorials in `master/README.md` for the
 master machine and `workers/README.md` for every worker machine before
@@ -41,7 +39,7 @@ rke up --config ~/rancher-cluster.yml --ignore-docker-version
 
 ![RKE Deployment](rancher-up-doc.gif)
 
-### [Test your cluster](https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/kubernetes-cluster-setup/rke1-for-rancher#3-test-your-cluster)
+#### [Test your cluster](https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/kubernetes-cluster-setup/rke1-for-rancher#3-test-your-cluster)
 
 ```sh
 aida@master:~$ kubectl get nodes
@@ -52,7 +50,7 @@ NAME         STATUS   ROLES               AGE   VERSION
 10.3.3.137   Ready    worker              26m   v1.26.13
 ```
 
-### [Check the Health of Your Cluster Pods](https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/kubernetes-cluster-setup/rke1-for-rancher#4-check-the-health-of-your-cluster-pods)
+#### [Check the Health of Your Cluster Pods](https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/kubernetes-cluster-setup/rke1-for-rancher#4-check-the-health-of-your-cluster-pods)
 
 ```sh
 aida@master:~$ kubectl get pods --all-namespaces
@@ -77,14 +75,14 @@ kube-system     rke-metrics-addon-deploy-job-vtp4z        0/1     Completed   0 
 kube-system     rke-network-plugin-deploy-job-znp9f       0/1     Completed   0          28m
 ```
 
-### [Save your files](https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/kubernetes-cluster-setup/rke1-for-rancher#5-save-your-files)
+#### [Save your files](https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/kubernetes-cluster-setup/rke1-for-rancher#5-save-your-files)
 
 Save a copy of the following files in a secure location:
 - `rancher-cluster.yml`: The RKE cluster configuration file.
 - `kube_config_rancher-cluster.yml`: The Kubeconfig file for the cluster, this file contains credentials for full access to the cluster.
 - `rancher-cluster.rkestate`: The Kubernetes Cluster State file, this file contains credentials for full access to the cluster.
 
-## K8S App Deployment Example
+### K8S App Deployment Example
 
 This section will show how to deploy an example application in your K8S
 cluster created by rancher.
@@ -408,3 +406,32 @@ The response should look similar to this:
 aida@master:~$ kubectl get pods
 No resources found in default namespace.
 ```
+
+## Edge
+
+edge machines:
+
+<!-- TODO: Add machines -->
+
+[KubeEdge](https://release-1-15.docs.kubeedge.io/docs/): `1.15`
+
+### Dependencies
+
+#### Cloud Dependencies
+
+You will need to have a k8s cluster in the `cloud side`, make sure you have followed the [deployment
+of a k8s cluster through rancher](#rke-deployment)
+
+#### Edge Dependencies
+
+For edge side, you will need to install a container runtime, in this tutorial we
+will be installing [docker](master/README.md#k8s-setup).
+
+### Installing Kubeedge
+
+In this tutorial, we will be installing version `1.15` to be [compatible with
+the kubernetes cluster
+version](https://github.com/kubeedge/kubeedge#kubernetes-compatibility) chosen
+in this project.
+
+#### Keadm
