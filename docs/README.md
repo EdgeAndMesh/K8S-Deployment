@@ -434,4 +434,70 @@ the kubernetes cluster
 version](https://github.com/kubeedge/kubeedge#kubernetes-compatibility) chosen
 in this project.
 
-#### Keadm
+#### Installing Keadm
+
+```sh
+keadm-install.sh
+```
+
+### Setup Cloud Side (KubeEdge Master Node)
+
+By default ports `10000` and `10002` in your cloudcore needs to be accessible
+for your edge nodes.
+
+<!-- TODO: Confirm kube-config location -->
+
+```sh
+keadm init --advertise-address=10.3.1.150 --profile version=v1.12.1 --kube-config="$KUBECONFIG"
+```
+
+To verify:
+
+```sh
+kubectl get all -n kubeedge
+```
+
+### Setup Edge Side (KubeEdge Worker Node)
+
+#### Get Token From Cloud Side
+
+```sh
+keadm gettoken
+```
+
+#### Join Edge Node
+
+```sh
+keadm join --cloudcore-ipport=10.3.1.150:10000 --token=<token> --kubeedge-version=v1.12.1
+```
+
+To verify:
+
+```sh
+systemctl status edgecore
+```
+
+### Deploy demo on edge nodes
+
+<!-- TODO: Deploy demo on edge nodes: https://release-1-15.docs.kubeedge.io/docs/setup/install-with-binary/#deploy-demo-on-edge-nodes
+
+### Enable `kubectl logs` Feature
+
+<!-- TODO: Enable kubectl logs Feature: https://release-1-15.docs.kubeedge.io/docs/setup/install-with-keadm#enable-kubectl-logs-feature -->
+
+### Reset KubeEdge Master and Worker nodes
+
+#### Master
+
+```sh
+keadm reset --kube-config="$KUBECONFIG"
+```
+
+#### Node
+
+```sh
+keadm reset
+```
+
+This will stop edgecore service without uninstalling/removing any of the
+prerequisites.
