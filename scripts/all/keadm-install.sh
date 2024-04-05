@@ -1,8 +1,8 @@
 #!/bin/sh
 set -xe
 
-arch=amd64
-version=1.15
+arch="${KEADM_ARCH:-amd64}"
+version=${KEADM_VERSION:-1.12.1}
 install_dir=/usr/local/bin
 
 temp_dir="$(mktemp --directory)"
