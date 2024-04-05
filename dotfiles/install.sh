@@ -23,7 +23,7 @@ installation() {
 		done
 }
 
-install() {
+_install() {
 	installation "$dotfiles_dir/all"
 	installation "$dotfiles_dir/$1/all"
 	installation "$dotfiles_dir/$1/$2"
@@ -31,7 +31,7 @@ install() {
 
 case "$1 $2" in
 	"cloud master" | "cloud worker" | "edge master" | "edge worker")
-		install "$1" "$2"
+		_install "$1" "$2"
 		;;
 	*) usage ;;
 esac
