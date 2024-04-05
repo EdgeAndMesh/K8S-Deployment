@@ -27,8 +27,8 @@ RKE Version: `v.1.4.15`
 
 ### RKE Deployment
 
-Make sure you have already followed the tutorials in `master/README.md` for the
-master machine and `workers/README.md` for every worker machine before
+Make sure you have already followed the tutorials in `cloud/master/README.md` for the
+master machine and `cloud/workers/README.md` for every worker machine before
 proceeding.
 
 Deploy by running the following command:
@@ -425,7 +425,7 @@ of a k8s cluster through rancher](#rke-deployment)
 #### Edge Dependencies
 
 For edge side, you will need to install a container runtime, in this tutorial we
-will be installing [docker](master/README.md#k8s-setup).
+will be installing [docker](cloud/master/README.md#k8s-setup).
 
 ### Installing Kubeedge
 
