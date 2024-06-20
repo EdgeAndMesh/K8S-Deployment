@@ -8,11 +8,12 @@ usage() {
 	exit 1
 }
 
-user=aida
-master='master 10.3.1.150'
-worker01='worker01 10.3.1.102'
-worker02='worker02 10.3.1.194'
-worker03='worker03 10.3.3.137'
+master='master aida 10.3.1.150'
+worker01='worker01 aida 10.3.1.102'
+worker02='worker02 aida 10.3.1.194'
+worker03='worker03 aida 10.3.3.137'
+edge01='edge01 admin 10.3.3.202'
+edge02='edge02 admin 10.3.1.27'
 
 check_directory() {
 	local_directory="$(realpath "$1")"
@@ -31,11 +32,18 @@ mount() {
 
 	set -x
 
-	for host in "$master" "$worker01" "$worker02" "$worker03"
+	for host in \
+		"$master" \
+		"$worker01" \
+		"$worker02" \
+		"$worker03" \
+		"$edge01" \
+		"$edge02"
 	do
 		hostname="$(echo "$host" | cut --delimiter=' ' --fields=1)"
-		ip="$(echo "$host" | cut --delimiter=' ' --fields=2)"
-		mkdir --parents "$hostname"
+		user="$(echo "$host" | cut --delimiter=' ' --fields=2)"
+		ip="$(echo "$host" | cut --delimiter=' ' --fields=3)"
+		mkdir --parents "$local_directory/$hostname"
 		sshfs -o 'compression=yes,reconnect' "$user@$ip:/home/$user" "$local_directory/$hostname"
 	done
 }
@@ -45,7 +53,13 @@ unmount() {
 
 	set -x
 
-	for host in "$master" "$worker01" "$worker02" "$worker03"
+	for host in \
+		"$master" \
+		"$worker01" \
+		"$worker02" \
+		"$worker03" \
+		"$edge01" \
+		"$edge02"
 	do
 		hostname="$(echo "$host" | cut --delimiter=' ' --fields=1)"
 		fusermount3 -u "$local_directory/$hostname"
