@@ -411,7 +411,14 @@ No resources found in default namespace.
 
 edge machines:
 
-<!-- TODO: Add machines -->
+1. Edge 1
+  - 4 CPU cores, 4GiB RAM, 24GB
+  - ip: `10.3.3.202`
+  - OS: Ubuntu 20.04.6 LTS
+2. Edge 2
+  - 6 CPU cores, 6GiB RAM, 24GB
+  - ip: `10.3.1.27`
+  - OS: Ubuntu 20.04.2 LTS
 
 [KubeEdge](https://release-1-15.docs.kubeedge.io/docs/): `1.15`
 
