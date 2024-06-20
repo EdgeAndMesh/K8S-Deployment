@@ -27,7 +27,7 @@ git clone git@github.com:EdgeAndMesh/K8S-Deployment.git ~/.local/src/K8S-Deploym
 ~/.local/src/K8S-Deployment/dotfiles/install.sh worker
 ```
 
-After sucessful installation of dotfiles, recommended to source `~/.profile`
+After successful installation of dotfiles, recommended to source `~/.profile`
 
 ```sh
 source ~/.profile
@@ -71,7 +71,7 @@ for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker c
 
 #### Adding user to docker group
 
-You can add the user to the docker group to avoid needing root priviliges to run
+You can add the user to the docker group to avoid needing root privileges to run
 docker.
 
 ```sh

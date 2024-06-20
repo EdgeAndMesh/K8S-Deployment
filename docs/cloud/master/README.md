@@ -27,7 +27,7 @@ git clone git@github.com:EdgeAndMesh/K8S-Deployment.git ~/.local/src/K8S-Deploym
 ~/.local/src/K8S-Deployment/dotfiles/install.sh cloud master
 ```
 
-After sucessful installation of dotfiles, recommended to source `~/.profile`
+After successful installation of dotfiles, recommended to source `~/.profile`
 
 ```sh
 source ~/.profile
