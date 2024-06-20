@@ -125,7 +125,14 @@ for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker c
 
 #### Adding user to docker group
 
-You can add the user to the docker group to avoid needing root priviliges to run
+> [!WARNING]
+> Anyone added to the docker group is root equivalent because they can use the
+> docker run --privileged command to start containers with root privileges. For
+> more information see [3](https://github.com/docker/docker/issues/9976) and
+> [4](https://docs.docker.com/engine/security/security/).
+> Make sure you only add a non-root user to the docker group, if is necessary.
+
+You can add the user to the docker group to avoid needing root privileges to run
 docker.
 
 ```sh
