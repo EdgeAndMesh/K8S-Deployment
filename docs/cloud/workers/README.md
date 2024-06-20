@@ -36,7 +36,7 @@ source ~/.profile
 ### Install scripts
 
 ```sh
-~/.local/src/K8S-Deployment/scripts/install.sh worker
+~/.local/src/K8S-Deployment/scripts/install.sh cloud worker
 source ~/.profile
 ```
 
