@@ -458,10 +458,43 @@ for your edge nodes.
 keadm init --advertise-address=10.3.1.150 --profile version=v1.12.1 --kube-config="$KUBECONFIG"
 ```
 
+```sh
+aida@master:~$ keadm init --advertise-address=10.3.1.150 --profile version=v1.12.1 --kube-config="$KUBECONFIG"
+Kubernetes version verification passed, KubeEdge installation will start...
+CLOUDCORE started
+=========CHART DETAILS=======
+NAME: cloudcore
+LAST DEPLOYED: Fri Jun 21 14:52:51 2024
+NAMESPACE: kubeedge
+STATUS: deployed
+REVISION: 1
+```
+
 To verify:
 
 ```sh
 kubectl get all -n kubeedge
+```
+
+```sh
+aida@master:~$ kubectl get all -n kubeedge
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/cloudcore-6d76c7f978-8z4kj   1/1     Running   0          53s
+
+NAME                TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)                                             AGE
+service/cloudcore   ClusterIP   10.43.113.23   <none>        10000/TCP,10001/TCP,10002/TCP,10003/TCP,10004/TCP   53s
+
+NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/cloudcore   1/1     1            1           53s
+
+NAME                                   DESIRED   CURRENT   READY   AGE
+replicaset.apps/cloudcore-6d76c7f978   1         1         1       53s
+```
+
+#### keadm manifest generate
+
+```sh
+keadm manifest generate --advertise-address=10.3.1.150 --kube-config="$KUBECONFIG" > kubeedge-cloudcore.yaml
 ```
 
 ### Setup Edge Side (KubeEdge Worker Node)
