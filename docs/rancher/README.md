@@ -1,5 +1,5 @@
 # Install/Upgrade Rancher on a Kubernetes Cluster
-Make sure you have already followed the tutorial in `docs/rancher/metalLB` before proceeding.
+Make sure you have already followed the tutorial in `docs/metalLB` before proceeding.
 
 ## [Prerequisites](https://ranchermanager.docs.rancher.com/getting-started/installation-and-upgrade/install-upgrade-on-a-kubernetes-cluster#prerequisites)
 
@@ -104,7 +104,7 @@ kubectl get svc -n cattle-system
 In order to access the URL, port forwarding is needed:
 - **Type**: Local
 - **Forward Port**: 9090, for example
-- **Destination Server**: What you have in `rancher-lb` EXTERNAL-IP
+- **Destination Server**: What you have in `rancher-lb`:  `<EXTERNAL-IP>`:443
 - **SSH Server**: aida@10.3.1.150:22
 
 Then, in order to access it in the browser just type: `https://localhost:<Forward-Port>`
