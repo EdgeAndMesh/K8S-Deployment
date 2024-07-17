@@ -107,5 +107,5 @@ In order to access the URL, port forwarding is needed:
 - **Destination Server**: What you have in `rancher-lb` EXTERNAL-IP
 - **SSH Server**: aida@10.3.1.150:22
 
-Then, in order to access it in the browser just type: https://localhost:`<Forward-Port>`
+Then, in order to access it in the browser just type: `https://localhost:<Forward-Port>`
 
