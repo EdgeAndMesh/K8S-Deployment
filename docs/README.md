@@ -502,13 +502,25 @@ keadm manifest generate --advertise-address=10.3.1.150 --kube-config="$KUBECONFI
 #### Get Token From Cloud Side
 
 ```sh
-keadm gettoken
+keadm --kube-config="$KUBECONFIG" gettoken ; printf '\n'
+```
+
+```sh
+aida@master:~$ keadm --kube-config="$KUBECONFIG" gettoken ; printf '\n'
+24385abf2a8598c9fdcfd64d31a026804e79270c01943be2298925e93b5544cd.eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTkwNjc5ODN9.7U14evpR7nyXU44aKJNNGJA6qJGazDzBagonPX_iE_k
 ```
 
 #### Join Edge Node
 
+> [!NOTE]
+> You may need root privileges
+
 ```sh
 keadm join --cloudcore-ipport=10.3.1.150:10000 --token=<token> --kubeedge-version=v1.12.1
+```
+
+```sh
+
 ```
 
 To verify:

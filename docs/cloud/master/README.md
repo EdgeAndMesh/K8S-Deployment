@@ -303,3 +303,19 @@ that the user added to the docker group takes effect.
 ```sh
 sudo reboot
 ```
+
+## Kubeedge setup
+
+[KubeEdge](https://release-1-15.docs.kubeedge.io/docs/): `1.15`
+
+### Dependencies
+
+You will need to have a k8s cluster in the `cloud side`, make sure you have followed the [deployment
+of a k8s cluster through rancher](#rke-deployment)
+
+### Installing Keadm
+
+```sh
+keadm-install.sh
+```
+
