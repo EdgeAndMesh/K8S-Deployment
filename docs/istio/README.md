@@ -14,7 +14,9 @@ cd istio-1.22.3
 export PATH=$PWD/bin:$PATH
 ```
 
-**Note**: `export` just makes the variable available temporarily to the current shell and its children processes. If you want to persist it, add it to `nano ~/.profile`.  
+**Note**: `export` just makes the variable available temporarily to the current shell and its children processes. If you want to persist it, add it to `~/.profile`.  
+
+Make sure you have installed `docs/istio/certificate-management/README.md` before proceeding if you want to manage and plug in custom certificates for the Istio Certificate Authority (CA).
 
 
 ## [Install Istio](https://istio.io/latest/docs/setup/getting-started/#install)
@@ -40,7 +42,7 @@ The Teastore application is deployed but not accessible from the outside. To mak
 Create the Gateway and Virtual Service files:
 <h5 a><strong><code>gateway-teastore.yaml</code></strong></h5>
 
-```sh
+```yaml
 apiVersion: networking.istio.io/v1alpha3
 kind: Gateway
 metadata:
@@ -60,7 +62,7 @@ spec:
 
 <h5 a><strong><code>virtualservice-teastore.yaml</code></strong></h5>
 
-```sh
+```yaml
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
@@ -138,23 +140,23 @@ Then, in order to access it in the browser just type: `https://localhost:<Forwar
 
 ## [Uninstall](https://istio.io/latest/docs/setup/getting-started/#uninstall)
 
-To delete the Teastore application and its configuration:
+- To delete the Teastore application and its configuration:
 ```sh
 kubectl delete pods,deployments,services -l app=teastore
 ```
 
-The Istio uninstall deletes the RBAC permissions and all resources hierarchically under the istio-system namespace. 
+- The Istio uninstall deletes the RBAC permissions and all resources hierarchically under the istio-system namespace. 
 ```sh
 kubectl delete -f samples/addons
 istioctl uninstall -y --purge
 ```
 
-The istio-system namespace is not removed by default. If no longer needed, use the following command to remove it:
+- The istio-system namespace is not removed by default. If no longer needed, use the following command to remove it:
 ```sh
 kubectl delete namespace istio-system
 ```
 
-The label to instruct Istio to automatically inject Envoy sidecar proxies is not removed by default. If no longer needed, use the following command to remove it:
+- The label to instruct Istio to automatically inject Envoy sidecar proxies is not removed by default. If no longer needed, use the following command to remove it:
 ```sh
 kubectl label namespace default istio-injection-
 ```

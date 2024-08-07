@@ -26,7 +26,7 @@ The following configuration gives MetalLB control over IPs from 192.168.1.240 to
 
 <h5 a><strong><code>ipAddressPool.yaml</code></strong></h5>
 
-```sh
+```yaml
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
@@ -46,7 +46,7 @@ In order to advertise the IP coming from an IPAddressPool, an L2Advertisement in
 <h5 a><strong><code>layer2-mode.yaml 
 </code></strong></h5>
 
-```sh
+```yaml
 apiVersion: metallb.io/v1beta1
 kind: L2Advertisement
 metadata:
