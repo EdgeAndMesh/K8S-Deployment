@@ -9,7 +9,7 @@ Make sure you have already followed the tutorial in `docs/metalLB` before procee
 
 ### [Kubernetes Cluster](https://ranchermanager.docs.rancher.com/getting-started/installation-and-upgrade/install-upgrade-on-a-kubernetes-cluster#kubernetes-cluster)
 
-For help setting up a Kubernetes cluster, make sure you have already followed the tutorials in `docs/README.md`.
+For help setting up a Kubernetes cluster, make sure you have already followed the tutorials in `docs/cloud/README.md`.
 
 ### [Ingress Controller](https://ranchermanager.docs.rancher.com/getting-started/installation-and-upgrade/install-upgrade-on-a-kubernetes-cluster#ingress-controller)
 
@@ -19,13 +19,13 @@ The Rancher UI and API are exposed through an Ingress. This means the Kubernetes
 - **Hosted Kubernetes Clusters (EKS, GKE, AKS)**: These do not include an Ingress controller by default. You need to manually deploy an Ingress controller.
 
 
-**Since the distribution installed in `docs/README.md` is RKE, this step can be skipped.**
+**Since the distribution installed in `docs/cloud/README.md` is RKE, this step can be skipped.**
 
 
 ### [CLI Tools](https://ranchermanager.docs.rancher.com/getting-started/installation-and-upgrade/install-upgrade-on-a-kubernetes-cluster#cli-tools)
 The following CLI tools are required for setting up the Kubernetes cluster. 
 
-- **kubectl** - Kubernetes command-line tool. Follow the tutorial at `docs/README.md`. 
+- **kubectl** - Kubernetes command-line tool. Follow the tutorial at `docs/cloud/README.md`. 
 - **helm** - Package management for Kubernetes. To install it, run the following commands:
     ```sh
     $ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3

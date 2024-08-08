@@ -1,5 +1,5 @@
 # Istio
-Make sure you have already followed the tutorials in `docs/metalLB/README.md` before proceeding.
+Make sure you have already followed the tutorials in `docs/cloud/metalLB/README.md` before proceeding.
 
 ## [Download Istio](https://istio.io/latest/docs/setup/getting-started/#download)
 
@@ -16,7 +16,7 @@ export PATH=$PWD/bin:$PATH
 
 **Note**: `export` just makes the variable available temporarily to the current shell and its children processes. If you want to persist it, add it to `~/.profile`.  
 
-Make sure you have installed `docs/istio/certificate-management/README.md` before proceeding if you want to manage and plug in custom certificates for the Istio Certificate Authority (CA).
+Make sure you have installed `docs/cloud/istio/certificate-management/README.md` before proceeding if you want to manage and plug in custom certificates for the Istio Certificate Authority (CA).
 
 
 ## [Install Istio](https://istio.io/latest/docs/setup/getting-started/#install)

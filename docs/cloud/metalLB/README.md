@@ -8,7 +8,7 @@ MetalLB addresses this issue by providing a network load balancer implementation
 
 ## [Prerequisites](https://metallb.universe.tf/#requirements)
 
-- A **Kubernetes** cluster, running Kubernetes 1.13.0 or later, that does not already have network load-balancing functionality. Make sure you have already followed the tutorials in `docs/README.md`.
+- A **Kubernetes** cluster, running Kubernetes 1.13.0 or later, that does not already have network load-balancing functionality. Make sure you have already followed the tutorials in `docs/cloud/README.md`.
 - A **cluster network configuration** that can coexist with MetalLB.
 Some IPv4 addresses for MetalLB to hand out.
 
