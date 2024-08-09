@@ -1,5 +1,5 @@
 # Install/Upgrade Rancher on a Kubernetes Cluster
-Make sure you have already followed the tutorial in `docs/metalLB` before proceeding.
+Make sure you have already followed the tutorial in `docs/other-configurations/metalLB/README.md` before proceeding.
 
 ## [Prerequisites](https://ranchermanager.docs.rancher.com/getting-started/installation-and-upgrade/install-upgrade-on-a-kubernetes-cluster#prerequisites)
 
@@ -109,3 +109,7 @@ In order to access the URL, port forwarding is needed:
 
 Then, in order to access it in the browser just type: `https://localhost:<Forward-Port>`
 
+
+#### 8. Add a password to Rancher
+
+![alt text](https://docs.rancherdesktop.io/assets/images/rancherUiWelcomePage-21a9632bf47edafe852af976ed625bf1.png)

@@ -3,7 +3,7 @@
 This task shows how to expose a secure HTTPS service using either simple or mutual TLS.
 
 ## Prerequisites
-1. Setup Istio by following the instructions in the `docs/istio/README.md` before proceeding.
+1. Setup Istio by following the instructions in the `docs/other-configurations/istio/README.md` before proceeding.
 
 2. Install openssl
 ```sh
